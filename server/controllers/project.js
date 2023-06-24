@@ -12,6 +12,7 @@ const userModel = require('../models/user.js');
 const logModel = require('../models/log.js');
 const followModel = require('../models/follow.js');
 const tokenModel = require('../models/token.js');
+const url = require('url');
 const {getToken} = require('../utils/token')
 const sha = require('sha.js');
 const axios = require('axios').default;
@@ -240,7 +241,8 @@ class projectController extends baseController {
         desc: '公共分类',
         uid: this.getUid(),
         add_time: yapi.commons.time(),
-        up_time: yapi.commons.time()
+        up_time: yapi.commons.time(),
+        parent_id: 0
       });
     }
     let uid = this.getUid();
