@@ -32,12 +32,18 @@ YApi 是<strong>高效</strong>、<strong>易用</strong>、<strong>功能强大
 * nodejs（7.6+)
 * mongodb（2.6+）
 * git
-#### 安装
-使用我们提供的 yapi-cli 工具，部署 YApi 平台是非常容易的。执行 yapi server 启动可视化部署程序，输入相应的配置和点击开始部署，就能完成整个网站的部署。部署完成之后，可按照提示信息，执行 node/{网站路径/server/app.js} 启动服务器。在浏览器打开指定url, 点击登录输入您刚才设置的管理员邮箱，默认密码为 ymfe.org 登录系统（默认密码可在个人中心修改）。
-
-    npm install -g yapi-cli --registry https://registry.npm.taobao.org
-    yapi server 
-    
+#### 安装-命令行部署
+如果 github 压缩文件无法下载，或需要部署到一些特殊的服务器，可尝试此方法
+```
+    mkdir yapi
+    cd yapi
+    git clone https://github.com/ran1990/yapi.git vendors //或者下载 zip 包解压到 vendors 目录（clone 整个仓库大概 140+ M，可以通过 `git clone --depth=1 https://github.com/ran1990/yapi.git vendors` 命令减少，大概 10+ M）
+    cp vendors/config_example.json ./config.json //复制完成后请修改相关配置
+    cd vendors
+    npm install --production --registry https://registry.npm.taobao.org
+    npm run install-server //安装程序会初始化数据库索引和管理员账号，管理员账号名可在 config.json 配置
+    node server/app.js //启动服务器后，请访问 127.0.0.1:{config.json配置的端口}，初次运行会有个编译的过程
+ ```   
 #### 服务管理
 利用pm2方便服务管理维护。
 
