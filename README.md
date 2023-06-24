@@ -35,14 +35,14 @@ YApi 是<strong>高效</strong>、<strong>易用</strong>、<strong>功能强大
 #### 安装-命令行部署
 如果 github 压缩文件无法下载，或需要部署到一些特殊的服务器，可尝试此方法
 ```
-    mkdir yapi
-    cd yapi
-    git clone https://github.com/ran1990/yapi.git vendors //或者下载 zip 包解压到 vendors 目录（clone 整个仓库大概 140+ M，可以通过 `git clone --depth=1 https://github.com/ran1990/yapi.git vendors` 命令减少，大概 10+ M）
-    cp vendors/config_example.json ./config.json //复制完成后请修改相关配置
-    cd vendors
-    npm install --production --registry https://registry.npm.taobao.org
-    npm run install-server //安装程序会初始化数据库索引和管理员账号，管理员账号名可在 config.json 配置
-    node server/app.js //启动服务器后，请访问 127.0.0.1:{config.json配置的端口}，初次运行会有个编译的过程
+mkdir yapi
+cd yapi
+git clone https://github.com/ran1990/yapi.git vendors //或者下载 zip 包解压到 vendors 目录（clone 整个仓库大概 140+ M，可以通过 `git clone --depth=1 https://github.com/ran1990/yapi.git vendors` 命令减少，大概 10+ M）
+cp vendors/config_example.json ./config.json //复制完成后请修改相关配置
+cd vendors
+npm install --production --registry https://registry.npm.taobao.org
+npm run install-server //安装程序会初始化数据库索引和管理员账号，管理员账号名可在 config.json 配置
+node server/app.js //启动服务器后，请访问 127.0.0.1:{config.json配置的端口}，初次运行会有个编译的过程
  ```   
 #### 服务管理
 利用pm2方便服务管理维护。
